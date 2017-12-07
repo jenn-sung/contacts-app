@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   end 
 
   namespace :v2 do
-    get "/contact" => 'contacts#show_contact'
+    get '/contacts' => 'contacts#index'
+   
   end
 end
