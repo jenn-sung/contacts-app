@@ -5,13 +5,13 @@ class Contact < ApplicationRecord
     first_name: first_name,
     last_name: last_name,
     email: email, 
-    phone: phone
+    phone_number: phone
     }
   end
 
   def full_name
 
-    
+
   end
 
 end
