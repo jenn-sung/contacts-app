@@ -1,6 +1,8 @@
 require 'unirest'
 
-response = Unirest.get('http://localhost:3000/v1/contact')
+base_url = "http://localhost:3000"
+
+response = Unirest.get("#{base_url}/v1/contact")
 
 contact = response.body
 
