@@ -10,6 +10,12 @@ class V2::ContactsController < ApplicationController
     render json: contact.as_json
   end
   
+  def johns
+    johns = Contact.all_johns
+    render json: contact.as_json
+  end
 
-
+  def middle_name
+    
+  end
 end

@@ -5,8 +5,10 @@ class Contact < ApplicationRecord
       first_name: first_name,
       last_name: last_name,
       email: email, 
-      phone_number: phone_number,
-      updated_at: day_month_date
+      japan_phone_number: japan_phone_number,
+      updated_at: day_month_date,
+      full_name: full_name,
+      middle_name: middle_name
     }
   end
 
@@ -15,5 +17,21 @@ class Contact < ApplicationRecord
   end
 
   def full_name
+    return "#{first_name} #{last}"
+  end
+
+  def japan_phone_number
+    return " + 86 #{phone_number}"
+  end
+
+  def self.all_johns
+    johns = []
+    contacts = Contacts.all
+    contact.each do |contact|
+      if contact.first_name.downcase == "john"
+        johns <<contact
   end
 end
+
+
+# "This person is #{contact['first_name']} #{contact['last_name']}"
