@@ -20,5 +20,5 @@ user_input = gets.chomp
 
 response = Unirest.post('#{base_url}/contacts')
 
-if user_input == '1'
-  response = Unirest.get("#{base}")
+#if user_input == '1'
+  #response = Unirest.get("#{base}")

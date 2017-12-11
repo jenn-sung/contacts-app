@@ -11,7 +11,7 @@ class Contact < ApplicationRecord
       middle_name: middle_name,
       bio: bio
     }
-  end
+  end 
 
   def day_month_date
     updated_at.strftime("%A, %b %d")
@@ -22,7 +22,7 @@ class Contact < ApplicationRecord
   end
 
   def japan_phone_number
-    return " + 86 #{phone_number}"
+    return "+86 #{phone_number}"
   end
 
   def self.all_johns
@@ -31,9 +31,10 @@ class Contact < ApplicationRecord
     contact.each do |contact|
       if contact.first_name.downcase == "john"
         johns <<contact
+      end
+    end
+    johns
   end
-
-  
 end
 
 
