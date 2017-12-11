@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   namespace :v2 do
     get '/contacts' => 'contacts#index'
+    get '/contacts' => 'contacts#create'
     
    
   end

@@ -5,7 +5,7 @@ class V2::ContactsController < ApplicationController
   end
 
   def show
-    the_id = params['id']
+    the_id = params[:id]
     contact = Contact.find_by(id: the_id)
     render json: contact.as_json
   end
@@ -15,7 +15,17 @@ class V2::ContactsController < ApplicationController
     render json: contact.as_json
   end
 
-  def middle_name
-    
+  def create
+    contact = Contact.new(
+      first_name: params['first_name'],
+      middle_name: params['middle_name'],
+      last_name: params['last_name'],
+      bio: params['bio'],
+      email: params['email'],
+      phone_number: params['phone_number']
+      )
+    contact.save
+
+    render json: contact.as_json
   end
 end

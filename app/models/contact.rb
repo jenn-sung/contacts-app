@@ -8,7 +8,8 @@ class Contact < ApplicationRecord
       japan_phone_number: japan_phone_number,
       updated_at: day_month_date,
       full_name: full_name,
-      middle_name: middle_name
+      middle_name: middle_name,
+      bio: bio
     }
   end
 
@@ -31,7 +32,8 @@ class Contact < ApplicationRecord
       if contact.first_name.downcase == "john"
         johns <<contact
   end
+
+  
 end
 
 
-# "This person is #{contact['first_name']} #{contact['last_name']}"
