@@ -30,7 +30,7 @@ class Contact < ApplicationRecord
     contacts = Contacts.all
     contact.each do |contact|
       if contact.first_name.downcase == "john"
-        johns <<contact
+        johns << contact
       end
     end
     johns

@@ -6,8 +6,9 @@ Rails.application.routes.draw do
 
   namespace :v2 do
     get '/contacts' => 'contacts#index'
-    get '/contacts' => 'contacts#create'
-    
-   
+    post '/contacts' => 'contacts#create'
+    get '/contacts' => 'contacts#show'
+    patch '/contacts' => 'contacts#update'
+    get '/all_johns' => 'contacts#johns'   
   end
 end
