@@ -1,6 +1,12 @@
 class V2::ContactsController < ApplicationController
+  before_action :authentication_user
+
   def index
-    contacts = Contact.all
+    if current_user
+      contacts = current_user.contacts
+    else
+      contacts = []
+    end
     render json: contacts.as_json
   end
 
@@ -21,8 +27,11 @@ class V2::ContactsController < ApplicationController
       latitude: params['latitude'],
       longitude: params['longitude']
       )
-    contact.save
-    render json: contact.as_json
+    if contact.save
+      render json: contact.as_json
+    else
+      render json: {errors: contact.errors.full_messages}
+    end
   end
 
   def update
