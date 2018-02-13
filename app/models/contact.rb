@@ -1,11 +1,11 @@
 class Contact < ApplicationRecord
-  belongs_to :user
-  has_many :contact_groups
-  has_many :groups, through: :contact_groups
+  # belongs_to :user
+  # has_many :contact_groups
+  # has_many :groups, through: :contact_groups
 
-  validates :email, :first_name, :last_name, presence: true
-  validates :email, uniqueness: true
-  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+  # validates :email, :first_name, :last_name, presence: true
+  # validates :email, uniqueness: true
+  # validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
 
   def as_json
     {
@@ -17,7 +17,8 @@ class Contact < ApplicationRecord
       updated_at: day_month_date,
       full_name: full_name,
       middle_name: middle_name,
-      bio: bio
+      bio: bio, 
+      # groups: groups.as_json
     }
   end 
 

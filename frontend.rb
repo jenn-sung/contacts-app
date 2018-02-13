@@ -40,14 +40,12 @@ while true
     the_params['phone_number'] = gets.chomp
     p "Enter the bio"
     the_params['bio'] = gets.chomp
-    p "Enter your full address"
-    the_params['address'] = gets.chomp
     response = Unirest.post("localhost:3000/v2/contacts", parameters: the_params)
     pp response.body
   elsif user_input == '4'
     p "Tell me the id of the contact you need."
     contact_id = gets.chomp
-    response = Unirest.get("localhost:3000/v2/contacts/{#contact_id}")
+    response = Unirest.get("localhost:3000/v2/contacts/#{contact_id}")
     the_contact = response.body
     the_params = {}
     p "Enter the first name"
@@ -62,8 +60,6 @@ while true
     the_params['phone_number'] = gets.chomp
     p "Enter the bio"
     the_params['bio'] = gets.chomp
-    p "Enter your full address"
-    the_params['address'] = gets.chomp
     response = Unirest.patch("localhost:3000/v2/contacts/#{contact_id}", parameters: the_params)
     pp response.body   
   elsif user_input == '5'

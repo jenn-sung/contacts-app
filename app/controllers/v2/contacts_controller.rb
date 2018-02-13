@@ -1,14 +1,16 @@
 class V2::ContactsController < ApplicationController
-  before_action :authenticate_user
+  # before_action :authenticate_user
   
   def index
-    if current_user
-      contacts = current_user.contacts
-    else
-      contacts = []
+    # if current_user
+      # contacts = current_user.contacts
+      contacts = Contact.all
+      render json: contacts.as_json
+    # else  
+    #   render json: contacts.as_json
     end
-    render json: contacts.as_json
-  end
+    
+  # end
 
   def show
     the_id = params[:id]
@@ -43,7 +45,6 @@ class V2::ContactsController < ApplicationController
       middle_name: params['middle_name'],
       email: params['email'],
       phone_number: params['phone_number'],
-      address: params['address'],
       bio: params['bio']
       )
     render json: contact.as_json
@@ -58,5 +59,4 @@ class V2::ContactsController < ApplicationController
     johns = Contact.all_johns
     render json: contact.as_json
   end
-
 end
